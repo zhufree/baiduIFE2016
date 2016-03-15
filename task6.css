@@ -1,0 +1,442 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #44565C;
+  font-family: 微软雅黑;
+}
+
+#main {
+  width: 980px;
+  height: 1386px;
+  margin: auto;
+  background: #fff;
+}
+
+#content {
+  width: 892px;
+  margin: auto;
+  position: relative;
+}
+
+#banner {
+  position: relative;
+  margin-bottom: 30px;
+  /*notic*/
+}
+
+#top-block {
+  width: 110px;
+  height: 61px;
+  background-color: #DB3E75;
+  position: relative;
+}
+
+#top-text {
+  font-size: 12px;
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  margin: 1px 4px;
+}
+
+#date {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 12px;
+  color: #d45d5c;
+}
+
+#top-hr {
+  width: 100%;
+  border: 1px #938e8c solid;
+}
+
+#intro {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+#pic {
+  width: 641px;
+  height: 301px;
+  position: relative;
+}
+
+#pic img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.cover {
+  width: 191px;
+  height: 301px;
+  opacity: 0.3;
+  position: absolute;
+}
+
+#left-cover {
+  background-color: green;
+  left: 0;
+}
+
+#right-cover {
+  background: purple;
+  right: 0;
+}
+
+#intro-text {
+  width: 203px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+#intro-text hr {
+  border: 1px #cc8091 solid;
+}
+
+#intro-text .intro-title {
+  font-variant: small-caps;
+  font-size: 24px;
+  /*   line-height: 40px; */
+}
+
+#under {
+  text-decoration: underline;
+}
+
+#caption {
+  font-size: 12px;
+  color: #676767;
+  font-family: STKaiti;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+#big-num {
+  color: #75b86b;
+  font-size: 116px;
+  font-style: italic;
+  text-indent: -0.2em;
+  line-height: 130px;
+}
+
+#sub-title {
+  position: relative;
+  color: #cc8091;
+  height: 60px;
+}
+
+#sub-num {
+  font-size: 55px;
+  width: 40%;
+  position: absolute;
+}
+
+#mid-css,
+#small-css {
+  position: absolute;
+  left: 40%;
+}
+
+#mid-css {
+  font-size: 21px;
+  bottom: 12px;
+}
+
+#small-css {
+  font-size: 12px;
+  bottom: -1px;
+}
+
+#news {
+  height: 200px;
+}
+
+#news div {
+  float: left;
+  width: 228px;
+  margin-right: 20px;
+}
+
+.news-title {
+  font-size: 16px;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+#what-title {
+  color: #418c59;
+}
+
+#when-title {
+  color: #d2994f;
+}
+
+#how-title {
+  color: #cc7680;
+}
+
+.news-content {
+  font-size: 12px;
+  color: #767777;
+  font-family: STSong;
+  line-height: 16px;
+}
+
+#how {
+  position: relative;
+  height: 150px;
+}
+
+#what-per {
+  position: absolute;
+  bottom: 0;
+}
+
+.what-per {
+  font-size: 12px;
+  color: #231815;
+  line-height: 16px;
+  opacity: 0.7;
+}
+
+.what-per span {
+  color: #cd4a48;
+  font-style: italic;
+}
+
+article {
+  margin-right: 10px;
+  width: 415px;
+  /*font-family: '黑体';*/
+  position: relative;
+  float: left;
+}
+
+article #big-title span {
+  font-size: 60px;
+  color: #f5e327;
+  font-weight: bold;
+  font-style: italic;
+}
+
+article #big-title {
+  font-size: 39px;
+  color: #11456b;
+  word-wrap: break-word;
+  line-height: 60px;
+}
+
+#art-title {
+  font-size: 33px;
+  color: #11456b;
+  font-weight: bold;
+}
+
+article hr {
+  border: 1px #11456b solid;
+  margin-bottom: 10px;
+}
+
+article .news-content+.news-content {
+  text-indent: 2em;
+}
+
+article span {
+  font-size: 72px;
+  color: #f5e327;
+  float: left;
+  margin-right: 8px;
+}
+
+article img {
+  float: right;
+  position: relative;
+  margin: 10px;
+}
+
+#cato {
+  width: 458px;
+  float: right;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+#cato img {
+  width: 458px;
+  height: 275px;
+}
+
+#cato-cover {
+  position: absolute;
+  top: 214px;
+  height: 61px;
+  background-color: #000;
+  opacity: 0.5;
+  width: 100%;
+}
+
+#pic-title {
+  border-left: 3px #72b16a solid;
+  font-size: 26px;
+  color: #fff;
+  margin: 8.5px 1em;
+  padding: 5px 5px;
+  position: absolute;
+  top: 214px;
+  /*   bottom: 25px; */
+  left: 0;
+}
+
+#pic-sub {
+  color: #72b16a;
+  font-style: italic;
+  font-size: 12px;
+  margin: 1.4em;
+  position: absolute;
+  top: 225px;
+  /*   bottom: 25px; */
+  left: 130px;
+}
+
+#cato-list {
+  width: 459px;
+  height: 318px;
+  background-color: #EAF1CF;
+  margin-top: 30px;
+}
+
+#cato-list .list {
+  font-size: 16px;
+  color: #5a5b5b;
+  line-height: 20px;
+  padding: 10px 20px 0 30px;
+}
+
+#cato-list span {
+  font-size: 12px;
+  font-style: italic;
+  text-align: right;
+}
+
+.tri {
+  border-bottom: 12px solid #11456b;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  width: 0;
+  position: relative;
+  left: 10px;
+  top: 25px;
+}
+
+#art-img {
+  width: 260px;
+  height: 160px;
+  background-color: #DB3E75;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+#cato-list #big-zero {
+  font-size: 110px;
+  color: #fff;
+  font-style: normal;
+  margin: 20px;
+  position: relative;
+  top: 8px;
+  right: 10px;
+}
+
+#pole {
+  width: 2px;
+  height: 86px;
+  position: relative;
+  left: 80px;
+  bottom: 105px;
+  background-color: #fff;
+}
+
+#art-img p {
+  position: absolute;
+  left: 70px;
+  color: #fff;
+  font-size: 18px;
+  line-height: 24px;
+  font-style: italic;
+  padding: 20px 20px 0 30px;
+  /*top: 100px;*/
+}
+
+#ot {
+  top: 20px;
+}
+
+#tff {
+  top: 40px;
+}
+
+#tff + p {
+  top: 70px;
+  font-size: 12px;
+  color: #fff;
+  line-height: 16px;
+  word-wrap: break-word;
+  font-style: normal;
+  display: block;
+  width: 60%;
+}
+
+#quote {
+  width: 200px;
+  height: 160px;
+  margin: 0 10px;
+  color: #5a5b5b;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+#quote p {
+  font-size: 14px;
+  line-height: 16px;
+  font-style: italic;
+  word-wrap: break-word;
+  display: block;
+  padding: 10px 20px 0 20px;
+}
+
+#quote span {
+  font-size: 72px;
+  color: #d45d5c;
+  font-style: normal;
+  vertical-align: top;
+}
+
+#quote span + span {
+  vertical-align: text-bottom;
+  display: block;
+  margin-top: 10px;
+}
+
+#bot-hr {
+  display: block;
+  position: absolute;
+  bottom: -700px;
+  border: 0.5px solid #938e8c;
+  width: 892px;
+}
+
+#bot-text {
+  position: relative;
+  float: right;
+  top: 60px;
+  font-size: 12px;
+  color: #d45d5c;
+}
