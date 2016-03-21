@@ -1,0 +1,90 @@
+section >*{
+    margin: 0 auto;
+}
+table th{
+    background-color: #000;
+    color: #fff;
+    text-align: left;
+}
+table tr:nth-child(odd){
+    background-color: #ccc;
+}
+table tr:nth-child(-n+4){
+    color: #f00;
+}
+input {
+    width: 100px;
+    display: block;
+    margin: 50px auto;
+    transition: width 2s;
+}
+input:focus{
+    width: 200px;
+    border: #0df solid 4px;
+    border-radius: 5px;
+}
+#banner-box {
+    width: 300px;
+    height: 150px;
+    position: relative;
+    /*background-color: #0ff;*/
+    overflow: hidden;
+    display: block;
+    list-style-type: none;
+}
+.num{
+    position: absolute;
+    bottom: 0;
+    width: 30px;
+    height: 30px;
+    margin: 0 2px;
+    background-color: #cbf;
+    font-size: 22px;
+    text-align: center;
+    color: #fff;
+    z-index: 5;
+}
+#num1 {
+    right: 64px;
+}
+#num2 {
+    right: 32px;
+}
+#num3 {
+    right: 0;
+}
+#banner1{
+    background-color: #0ff;
+    left: 0;
+}
+#banner2{
+    background-color: #00f;
+    left: 100%;
+}
+#banner3{
+    background-color: #ff0;
+    left: 200%;
+}
+.banner {
+    position: absolute;
+    /*top: 0;*/
+    /*right: 0;*/
+    width: 100%;
+    height: 100%;
+    transition: left 2s;
+}
+@keyframes show
+{
+from {width: 0;}
+to {width: 100%;}
+}
+
+#banner1:target{
+    left: 0;
+};
+#banner2:target{
+    left: 0;
+};
+#banner3:target{
+    left: 0;
+};
