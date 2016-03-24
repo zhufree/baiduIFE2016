@@ -1,432 +1,625 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
-a:link, a:visited, a:hover, a:active{
-    text-decoration: none;
-    color: inherit;
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  color: inherit;
 }
 
 nav {
-    width: 100%;
-    height: 60px;
-    position: relative;
+  width: 100%;
+  height: 60px;
+  position: relative;
 }
 
-#brand{
-    width: 40%;
-    display: inline;
-    font-size: 20px;
-    margin-left: 60px;
-    position: relative;
+#brand {
+  width: 40%;
+  display: inline;
+  font-size: 20px;
+  margin-left: 60px;
+  position: relative;
 }
 
 #brand img {
-    height: 70%;
-    margin: 10px;
+  height: 70%;
+  margin: 10px;
 }
 
 nav p {
-    display: inline;
-    position: absolute;
-    top: 20px;
-    left: 130px;
+  display: inline;
+  position: absolute;
+  top: 20px;
+  left: 130px;
 }
 
 #menu {
-    float: right;
-    margin-top: 20px;
-    margin-right: 40px;
-    font-size: 14px;
-    color: #777;
+  float: right;
+  margin-top: 20px;
+  margin-right: 40px;
+  font-size: 14px;
+  color: #777;
 }
 
-#menu ul{
-    list-style: none;
+#menu ul {
+  list-style: none;
 }
 
-#menu li{
-    display: inline;
-    padding: 18px;
+#menu li {
+  display: inline;
+  padding: 18px;
 }
 
 #login img {
-    height: 15px;
-    margin: auto 5px;
+  height: 15px;
+  margin: auto 5px;
 }
 
 #menu li:target {
-    color: #F72A3F;
-    border-bottom: #F72A3F 4px solid;
+  color: #F72A3F;
+  border-bottom: #F72A3F 4px solid;
 }
 
-#main{
-    width: 1280px;
+#main {
+  width: 1280px;
 }
+
 #big-back {
-    width: 100%;
-    position: relative;
-    height: 700px;
-    overflow: hidden;
-    color: white;
+  width: 100%;
+  position: relative;
+  height: 700px;
+  overflow: hidden;
+  color: white;
 }
 
 #big-back img {
-    width: 100%;
+  width: 100%;
 }
 
 #big-back .cover {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #666;
-    opacity: 0.3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #666;
+  opacity: 0.3;
 }
 
 #big-back h1 {
-    position: absolute;
-    top: 200px;
-    left: 120px;
-    font-size: 60px;
-    font-weight: normal;
+  position: absolute;
+  top: 200px;
+  left: 120px;
+  font-size: 60px;
+  font-weight: normal;
 }
 
 #big-back p {
-    position: absolute;
-    top: 300px;
-    left: 120px;
-    font-size: 22px;
+  position: absolute;
+  top: 300px;
+  left: 120px;
+  font-size: 22px;
 }
 
 #big-back button {
-    position: absolute;
-    top: 420px;
-    left: 120px;
-    font-size: 30px;
-    width: 340px;
-    height: 60px;
-    background-color: #F72A3F;
-    color: #fff;
-    border: none;
+  position: absolute;
+  top: 420px;
+  left: 120px;
+  font-size: 30px;
+  width: 340px;
+  height: 60px;
+  background-color: #F72A3F;
+  color: #fff;
+  border: none;
 }
 
-#introduction > *{
-    width: 25%;
-    height: 250px;
-    float: left;
-    position: relative;
-    text-align: center;
-    box-sizing: border-box;
-    background-color: #fff;
+#introduction > * {
+  width: 25%;
+  height: 250px;
+  float: left;
+  position: relative;
+  text-align: center;
+  box-sizing: border-box;
+  background-color: #fff;
 }
 
 #introduction img {
-    position: absolute;
-    top: 40px;
-    margin: auto;
+  position: absolute;
+  top: 40px;
+  margin: auto;
 }
 
 #introduction p {
-    position: absolute;
-    top: 130px;
-    /*left: 100px;*/
-    font-size: 14px;
-    color: #777;
-    padding: 0 00px 0 100px;
+  position: absolute;
+  top: 130px;
+  /*left: 100px;*/
+  font-size: 14px;
+  color: #777;
+  padding: 0 00px 0 100px;
 }
 
-#introduction p{
-    border-left: #777 2px solid;
+#introduction p {
+  border-left: #777 2px solid;
 }
 
 #introduction div:first-child p {
-    border: none;
+  border: none;
 }
 
 #next {
-    text-align: center;
-    background-color: #ECECEC;
-    height: 650px;
+  text-align: center;
+  background-color: #ECECEC;
+  height: 650px;
 }
 
 #next img {
-    margin: 100px auto 30px auto;
+  margin: 100px auto 30px auto;
 }
+
 #next h1 {
-    font-size: 60px;
-    font-weight: normal;
-    color: #A2A2A2;
-    margin: 20px auto 60px auto;
+  font-size: 60px;
+  font-weight: normal;
+  color: #A2A2A2;
+  margin: 20px auto 60px auto;
 }
 
 #search {
-    position: relative;
-    height: 340px;
-    text-align: center;
+  position: relative;
+  height: 340px;
+  text-align: center;
 }
-#search >*{
-    position: absolute;
 
+#search >* {
+  position: absolute;
 }
+
 #search img {
-    top: 0;
-    left: 0;
+  top: 0;
+  left: 0;
 }
+
 #search .cover {
-    background-color: #F72A3F;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.2;
+  background-color: #F72A3F;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
 }
-#search h2{
-    margin: 50px 510px;
-    font-weight: normal;
-    font-size: 20px;
-    color: #fff;
+
+#search h2 {
+  margin: 50px 510px;
+  font-weight: normal;
+  font-size: 20px;
+  color: #fff;
 }
+
 #search hr {
-    width: 30px;
-    top: 85px;
-    left: 610px;
-    color: #fff;
-    border: 1px #fff solid;
+  width: 30px;
+  top: 85px;
+  left: 610px;
+  color: #fff;
+  border: 1px #fff solid;
 }
-#search p{
-    margin: 100px 450px;
-    font-weight: normal;
-    font-size: 14px;
-    color: #fff;
+
+#search p {
+  margin: 100px 450px;
+  font-weight: normal;
+  font-size: 14px;
+  color: #fff;
 }
+
 #select {
-    top: 160px;
-    margin: auto 100px;
-
+  top: 160px;
+  margin: auto 100px;
 }
+
 #select >* {
-    width: 240px;
-    height: 35px;
-    margin: 10px;
-
+  width: 240px;
+  height: 35px;
+  margin: 10px;
 }
+
 select {
-    /*Chrome和Firefox里面的边框是不一样的，所以复写了一下*/
-    border: none;
-    color: #777;
-    /*很关键：将默认的select选择框样式清除*/
-    appearance:none;
-    -moz-appearance:none;
-    -webkit-appearance:none;
-
-    /*在选择框的最右侧中间显示小箭头图片*/
-    background: url("http://7xlfws.com1.z0.glb.clouddn.com/%E7%81%AB%E7%8B%90%E6%88%AA%E5%9B%BE_2016-03-23T07-25-33.726Z.png") no-repeat scroll right center #fff;
-
-
-    /*为下拉小箭头留出一点位置，避免被文字覆盖*/
-    padding-right: 20px;
-    padding-left: 10px;
+  /*Chrome和Firefox里面的边框是不一样的，所以复写了一下*/
+  border: none;
+  color: #777;
+  /*很关键：将默认的select选择框样式清除*/
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  /*在选择框的最右侧中间显示小箭头图片*/
+  background: url("http://7xlfws.com1.z0.glb.clouddn.com/%E7%81%AB%E7%8B%90%E6%88%AA%E5%9B%BE_2016-03-23T07-25-33.726Z.png") no-repeat scroll right center #fff;
+  /*为下拉小箭头留出一点位置，避免被文字覆盖*/
+  padding-right: 20px;
+  padding-left: 10px;
 }
+
 select:focus {
-    border: #F72A3F 1px solid;
+  border: #F72A3F 1px solid;
 }
+
 select option {
-    height: 25px;
-    text-indent: 30px; 
-    background-color: #ddd;
-    border-left: #F72A3F 1px solid;
-    border-right: #F72A3F 1px solid;
+  height: 25px;
+  text-indent: 30px;
+  background-color: #ddd;
+  border-left: #F72A3F 1px solid;
+  border-right: #F72A3F 1px solid;
 }
+
 select option:last-child {
-    border-bottom: #F72A3F 1px solid;
+  border-bottom: #F72A3F 1px solid;
 }
+
 select option:hover {
-    background-color: #F72A3F;
-    text-indent: 15px; 
-    color: #fff;
+  background-color: #F72A3F;
+  text-indent: 15px;
+  color: #fff;
 }
+
 select option:hover:before {
-    content: '\2713';
+  content: '\2713';
 }
 
 #select button {
-    position: relative;
-    background-color: #F72A3F;
-    color: #fff;
-    border: none;
+  position: relative;
+  background-color: #F72A3F;
+  color: #fff;
+  border: none;
 }
 
 #activity {
-    height: 400px;
-    position: relative;
-    padding: 100px 120px;
-    background-color: #F8F8F8;
+  height: 400px;
+  position: relative;
+  padding: 100px 120px;
+  background-color: #F8F8F8;
 }
 
 #activity div {
-    float: left;
-    margin: 15px;
-    text-align: center;
+  float: left;
+  margin: 15px;
+  text-align: center;
 }
 
 #activity img {
-    padding: 10px;
-    border: 2px #eee solid;
-    background-color: #fff;
+  padding: 10px;
+  border: 2px #eee solid;
+  background-color: #fff;
 }
 
-#activity h3{
-    font-size: 16px;
-    font-weight: normal;
-    color: #222;
+#activity h3 {
+  font-size: 16px;
+  font-weight: normal;
+  color: #222;
 }
+
 #activity p {
-    font-size: 14px;
-    color: #777;
+  font-size: 14px;
+  color: #777;
 }
+
 #sh h3 {
-    font-size: 30px;
+  font-size: 30px;
 }
 
 #location {
-
+  position: relative;
+  height: 1086px;
 }
 
 #location > * {
-    float: left;
+  float: left;
 }
 
 #time {
-    width: 66.66666%;
-    height: 565px;
-    position: relative;
-    text-align: center;
-    color: #fff;
+  width: 66.66666%;
+  height: 565px;
+  position: relative;
+  text-align: center;
+  color: #fff;
 }
-#time h3{
-    position: absolute;
-    top: 120px;
-    left: 350px;
-    font-size: 50px;
-    font-weight: normal;
+
+#time h3 {
+  position: absolute;
+  top: 120px;
+  left: 350px;
+  font-size: 50px;
+  font-weight: normal;
 }
+
 #time h1 {
-    position: absolute;
-    top: 140px;
-    left: 250px;
-    font-size: 160px;
-    font-weight: normal;
+  position: absolute;
+  top: 140px;
+  left: 250px;
+  font-size: 160px;
+  font-weight: normal;
 }
-#time p:nth-child(4){
-    position: absolute;
-    top: 350px;
-    left: 350px;
-    font-size: 25px;
-    font-weight: normal;
+
+#time p:nth-child(4) {
+  position: absolute;
+  top: 350px;
+  left: 350px;
+  font-size: 25px;
+  font-weight: normal;
 }
-#time p:last-child{
-    position: absolute;
-    top: 400px;
-    left: 370px;
-    font-size: 25px;
-    font-weight: normal;
+
+#time p:last-child {
+  position: absolute;
+  top: 400px;
+  left: 370px;
+  font-size: 25px;
+  font-weight: normal;
 }
+
 #first {
-    width: 33.33333%;
-    height: 565px;
-    position: relative;
-    text-align: center;
+  width: 33.33333%;
+  height: 565px;
+  position: relative;
+  text-align: center;
 }
+
 #first h3 {
-    margin: 150px auto 20px auto;
-    font-size: 22px;
-    font-weight: normal;
-    color: #333;
+  margin: 150px auto 20px auto;
+  font-size: 22px;
+  font-weight: normal;
+  color: #333;
 }
+
 #first span {
-    color: #F72A3F;
+  color: #F72A3F;
 }
-#first p{
-    font-size: 14px;
-    color: #ccc;
-    margin: 10px 60px auto ;
-    text-align: left;
-    line-height: 30px;
+
+#first p {
+  font-size: 14px;
+  color: #ccc;
+  margin: 10px 60px auto;
+  text-align: left;
+  line-height: 30px;
 }
+
 #first button {
-    margin: 60px auto;
-    position: relative;
-    left: -30px;
-    width: 100px;
-    height: 30px;
-    background-color: #fff;
-    border: #F72A3F 1px solid;
-    border-radius: 2px;
-    color: #F72A3F;
-    font-size: 12px;
+  margin: 60px auto;
+  position: relative;
+  left: -30px;
+  width: 100px;
+  height: 30px;
+  background-color: #fff;
+  border: #F72A3F 1px solid;
+  border-radius: 2px;
+  color: #F72A3F;
+  font-size: 12px;
 }
+
 .dot {
-    width: 10px;
-    height: 10px;
-    border: #ccc 2px solid;
-    background-color: #fff;
-    border-radius: 50%;
-    float: left;
-    position: relative;
-    top: 120px;
-    left: 185px;
-    margin: auto 5px;
+  width: 10px;
+  height: 10px;
+  border: #ccc 2px solid;
+  background-color: #fff;
+  border-radius: 50%;
+  float: left;
+  position: relative;
+  top: 120px;
+  left: 185px;
+  margin: auto 5px;
 }
+
 .dot:nth-last-child(3) {
-    background-color: #ccc;
+  background-color: #ccc;
 }
 
 .more {
-    width: 33.33333%;
-    height: 521px;
-    text-align: center;
+  width: 33.33333%;
+  height: 521px;
+  text-align: center;
 }
+
 .more:nth-child(3) {
-    background-color: #F72A3F;
-    color: #fff;
+  background-color: #F72A3F;
+  color: #fff;
 }
+
 .more:nth-child(4) {
-    color: #F72A3F;
+  color: #333;
 }
+
 .more p:first-child {
-    margin-top: 180px;
+  margin-top: 180px;
 }
+
 .more p:nth-child(2) {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
+
 .more hr {
-    width: 30px;
-    margin: 30px auto;
-    border: #fff 1px solid;
+  width: 30px;
+  margin: 30px auto;
+  border: #fff 1px solid;
 }
+
 .more:nth-child(4) hr {
-    border: #777 1px solid;
+  border: #999 1px solid;
 }
+
 .more button {
-    position: relative;
-    width: 160px;
-    height: 40px;
-    background-color: #F72A3F;
-    border: #fff 1px solid;
-    border-radius: 2px;
-    color: #fff;
-    font-size: 20px;
+  position: relative;
+  width: 160px;
+  height: 40px;
+  background-color: #F72A3F;
+  border: #fff 1px solid;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 20px;
 }
+
 .more:nth-child(4) button {
-    position: relative;
-    width: 160px;
-    height: 40px;
-    background-color: #fff;
-    border: #F72A3F 1px solid;
-    border-radius: 2px;
-    color: #F72A3F;
-    font-size: 20px;
+  position: relative;
+  width: 160px;
+  height: 40px;
+  background-color: #fff;
+  border: #F72A3F 1px solid;
+  border-radius: 2px;
+  color: #F72A3F;
+  font-size: 20px;
+}
+
+#join {
+  height: 500px;
+  color: #999;
+  position: relative;
+  padding: 130px;
+}
+
+#join h1 {
+  text-align: center;
+  margin: 0 auto 10px;
+  font-weight: normal;
+  font-size: 20px;
+  color: #333;
+}
+
+#join hr {
+  width: 30px;
+  margin: 10px auto;
+  border: #F72A3F 1px solid;
+}
+
+#join p:nth-child(3) {
+  font-size: 13px;
+  text-align: center;
+}
+
+#notice {
+  width: 290px;
+  margin-top: 80px;
+  float: left;
+}
+
+#notice h2 {
+  font-size: 15px;
+  font-weight: normal;
+  margin: 30px 0;
+  color: #555;
+}
+
+#notice h2:nth-last-child(2) {
+  margin-bottom: 15px;
+}
+
+#notice p {
+  font-size: 12px;
+  line-height: 20px;
+}
+
+#notice span {
+  font-size: 10px;
+  float: right;
+}
+
+#notice span:before {
+  content: '\25BC';
+}
+
+form {
+  margin: 100px auto auto 70px;
+  width: 655px;
+  float: left;
+  padding: 0;
+}
+
+form > * {
+  color: #000;
+  background-color: #eee;
+}
+
+form input {
+  width: 303px;
+  height: 40px;
+  margin: 8px 10px;
+  border: none;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 12px;
+}
+
+form textarea {
+  margin: 8px 10px;
+  border: none;
+  width: 635px;
+  height: 120px;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+form button {
+  margin: 8px 10px;
+  border: none;
+  width: 635px;
+  height: 45px;
+}
+
+#contact {
+  height: 180px;
+  color: #fff;
+  position: relative;
+  padding: 90px;
+  background-color: #363841;
+  text-align: center;
+}
+
+#contact h1 {
+  /*margin: 0 auto 5px;*/
+  font-weight: normal;
+  font-size: 20px;
+}
+
+#contact p {
+  font-size: 12px;
+  line-height: 20px;
+}
+
+#contact input[type='text'] {
+  width: 410px;
+  height: 40px;
+  border: none;
+  margin-top: 30px;
+  padding-left: 10px;
+}
+
+#contact input[type='button'] {
+  width: 80px;
+  height: 40px;
+  background-color: #6F6D76;
+  border: none;
+  color: #fff;
+  position: relative;
+  left: -10px;
+}
+
+#contact img {
+  margin: 40px 10px;
+}
+
+footer {
+  height: 60px;
+  background-color: #34323D;
+  color: #fff;
+  padding-top: 30px;
+  box-sizing: border-box;
+}
+
+footer span {
+  font-size: 12px;
+}
+
+footer span:first-child {
+  margin-left: 80px;
+}
+
+footer span:last-child {
+  float: right;
+  margin-right: 40px;
 }
