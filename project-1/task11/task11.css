@@ -50,6 +50,7 @@ hr {
 
 nav ul {
   display: flex;
+  display: -webkit-flex;
   flex-direction: row;
 }
 
@@ -72,6 +73,7 @@ nav li:target {
 
 #tags ul {
   display: flex;
+  display: -webkit-flex;
 }
 
 #tags li {
@@ -92,6 +94,7 @@ nav li:target {
 
 #tabs {
   display: flex;
+  display: -webkit-flex;
   padding: 1rem;
 }
 
@@ -124,6 +127,7 @@ nav li:target {
 
 #modules div>div {
   display: flex;
+  display: -webkit-flex;
 }
 
 #modules div>div img {
@@ -139,6 +143,7 @@ nav li:target {
   margin: .5rem 0 .5rem 0;
   /*flex: auto;*/
   display: flex;
+  display: -webkit-flex;
   flex-wrap: wrap;
 }
 
@@ -149,6 +154,7 @@ nav li:target {
   box-sizing: border-box;
   position: relative;
   display: flex;
+  display: -webkit-flex;
   justify-content: center;
   align-items: center;
 }
@@ -173,6 +179,7 @@ nav li:target {
 
 #articles > div {
   display: flex;
+  display: -webkit-flex;
 }
 
 #articles >div img {
