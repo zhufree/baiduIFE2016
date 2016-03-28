@@ -18,6 +18,7 @@ function getDateStr(dat) {
   d = d < 10 ? '0' + d : d;
   return y + '-' + m + '-' + d;
 }
+
 function randomBuildData(seed) {
   var returnData = {};
   var dat = new Date("2016-01-01");
@@ -131,7 +132,6 @@ function renderChart() {
       };
       break;
   }
-  
 
 }
 
@@ -141,10 +141,10 @@ function renderChart() {
 function graTimeChange() {
   // 确定是否选项发生了变化 
   if (this.value !== pageState.nowGraTime) {
-  // 设置对应数据
-  pageState.nowGraTime = this.value;
-  // 调用图表渲染函数
-  renderChart();
+    // 设置对应数据
+    pageState.nowGraTime = this.value;
+    // 调用图表渲染函数
+    renderChart();
   }
 }
 
@@ -154,10 +154,10 @@ function graTimeChange() {
 function citySelectChange() {
   // 确定是否选项发生了变化 
   if (this.selectedIndex !== pageState.nowSelectCity) {
-  // 设置对应数据
-  pageState.nowSelectCity = this.selectedIndex;
-  // 调用图表渲染函数
-  renderChart();
+    // 设置对应数据
+    pageState.nowSelectCity = this.selectedIndex;
+    // 调用图表渲染函数
+    renderChart();
   };
 }
 
@@ -201,9 +201,9 @@ function initAqiChartData() {
     var weekSum = 0;
     for (var i = 0, j = 0, weekFrom = days[i]; i < days.length; i++) {
       weekSum += dayData[days[i]];
-      j ++;
+      j++;
       if (j === 7) {
-        weekData[weekFrom] = Math.round(weekSum/7);
+        weekData[weekFrom] = Math.round(weekSum / 7);
         j = 0;
         weekSum = 0;
         weekFrom = days[i];
@@ -218,17 +218,17 @@ function initAqiChartData() {
     var monthSum = 0;
     for (var i = 0; i < 31; i++) {
       monthSum += dayData[days[i]];
-      monthData['1'] = Math.round(monthSum/31);
+      monthData['1'] = Math.round(monthSum / 31);
     };
     monthSum = 0;
     for (var i = 31; i < 60; i++) {
       monthSum += dayData[days[i]];
-      monthData['2'] = Math.round(monthSum/29);
+      monthData['2'] = Math.round(monthSum / 29);
     };
     monthSum = 0;
     for (var i = 60; i < 91; i++) {
       monthSum += dayData[days[i]];
-      monthData['3'] = Math.round(monthSum/31);
+      monthData['3'] = Math.round(monthSum / 31);
     };
     return monthData;
   }
