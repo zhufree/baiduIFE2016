@@ -71,6 +71,7 @@ function renderChart() {
       for (var i = 0; i < time.length; i++) {
         var newPode = document.createElement('div');
         newPode.setAttribute('class', 'pode');
+        newPode.setAttribute('title', time[i] + ' pm:' + data[time[i]]);
         newPode.style.height = data[time[i]];
         newPode.style.width = '10';
         if (data[time[i]] > 400) {
@@ -91,6 +92,7 @@ function renderChart() {
       for (var i = 0; i < time.length; i++) {
         var newPode = document.createElement('div');
         newPode.setAttribute('class', 'pode');
+        newPode.setAttribute('title', 'Week from ' + time[i] + ' pm:' + data[time[i]]);
         newPode.style.height = data[time[i]];
         newPode.style.width = '25';
         if (data[time[i]] > 300) {
@@ -111,6 +113,7 @@ function renderChart() {
       for (var i = 0; i < time.length; i++) {
         var newPode = document.createElement('div');
         newPode.setAttribute('class', 'pode');
+        newPode.setAttribute('title', 'Month' + time[i] + ' pm:' + data[time[i]]);
         newPode.style.height = data[time[i]];
         newPode.style.width = '40';
         if (data[time[i]] > 200) {
@@ -238,7 +241,7 @@ function initAqiChartData() {
       'month': toMonth(aqiSourceData[cities[i]])
     };
   };
-  console.log(chartData);
+  // console.log(chartData);
   return chartData;
 }
 

@@ -1,11 +1,12 @@
-
 fieldset:nth-last-child(2) {
-	min-height: 200px;
+  min-height: 200px;
 }
+
 .aqi-chart-wrap {
-	display: flex;
-	align-items: flex-end;
+  display: flex;
+  align-items: flex-end;
 }
+
 .pode {
-	border: #fff 1px solid;
+  border: #fff 1px solid;
 }
