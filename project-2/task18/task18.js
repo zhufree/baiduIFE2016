@@ -40,15 +40,14 @@ function enterFromRight() {
 };
 
 function removeFromLeft() {
-	arr.shift();
+	alert(arr.shift() || 'Empty Array!');
 	firstBox = showBox.firstChild;
 	showBox.removeChild(firstBox);
 };
 
 function removeFromRight() {
-	arr.pop();
+	alert(arr.pop() || 'Empty Array!');
 	lastBox = showBox.lastChild;
-	console.log(lastBox);
 	showBox.removeChild(lastBox);
 }
 
