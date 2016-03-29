@@ -1,0 +1,13 @@
+#showBox {
+	display: flex;
+}
+.box {
+	flex: 0 0 auto;
+	margin: 10px;
+	background-color: #F00;
+	color: #fff;
+	width: 40px;
+	height: 40px;
+	font-size: 30px;
+	text-align: center;
+}
