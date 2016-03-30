@@ -1,0 +1,14 @@
+#showBox {
+    display: flex;
+    align-items: flex-end;
+}
+.box {
+    flex: 0 0 auto;
+    margin: 10px 0;
+    background-color: #F00;
+    color: #fff;
+    width: 20px;
+    font-size: 20px;
+    text-align: center;
+    border: #fff 1px solid;
+}
