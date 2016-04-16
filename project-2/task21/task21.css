@@ -1,0 +1,26 @@
+#tag-inp:focus {
+	border: #5DAC81 2px solid;
+	border-radius: 2px;
+	box-shadow: 1px 1px 2px #5DAC81;
+}
+
+.tag {
+	background-color: #5DAC81;
+	color: #fff;
+	margin: 10px 2px;
+	padding: 0 5px;
+}
+
+.tag:hover {
+	background-color: #f00;
+}
+.tag:hover:before {
+	content: '点击删除';
+}
+
+.intrs {
+	background-color: #ED784A;
+	color: #fff;
+	margin: 10px 2px;
+	padding: 0 5px;
+}
