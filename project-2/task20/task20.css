@@ -1,0 +1,15 @@
+#showBox {
+    display: flex;
+    align-items: flex-end;
+}
+.box {
+    flex: 0 0 auto;
+    margin: 10px 5px;
+    padding: auto 5px;
+    background-color: #ccc;
+    color: #fff;
+    /*width: 20px;*/
+    font-size: 20px;
+    text-align: center;
+    border: #fff 1px solid;
+}
