@@ -3,29 +3,12 @@ function Node(data) {
     this.parent = null;
     this.lchild = null;
     this.rchild = null;
-}
-
-function render(node) {
-    curDiv = document.createElement('div');
-    curDiv.setAttribute('id', node.data);
-    curDiv.setAttribute('class', 'node');
-    curDiv.style.height = node.parent ? '50%' : '200px';
-    // curDiv.innerText = node.data;
-    curPar = node.parent ? document.getElementById(node.parent.data) : document.body;
-    curPar.appendChild(curDiv);
-}
-
-function light(node) {
-    curDiv = document.getElementById(node.data);
-    curDiv.style.color = '#f00';
-    console.log('1');
-}
-
-function delight(node) {
-    curDiv = document.getElementById(node.data);
-    // setTimeout("curDiv.style.color = '#ccc';", 1000);
-    curDiv.style.color = '#ccc';
-    console.log('2');
+    this.addChild = function(lchild, rchild) {
+        this.lchild = lchild;
+        this.rchild = rchild;
+        lchild.parent = this;
+        rchild.parent = this;
+    }
 }
 
 function Tree(node) {
@@ -33,10 +16,33 @@ function Tree(node) {
     this._root = node;
 }
 
+function render(node) {
+    var curDiv = document.createElement('div');
+    curDiv.setAttribute('id', node.data);
+    curDiv.setAttribute('class', 'node');
+    curDiv.style.height = node.parent ? '50%' : '200px';
+    var curPar = node.parent ? document.getElementById(node.parent.data) : document.body;
+    curPar.appendChild(curDiv);
+}
+
+function blink(node, num) {
+    var curDiv = document.getElementById(node.data);
+    setTimeout(function(){
+        curDiv.style.backgroundColor = '#f00';
+        console.log('1');
+    }, 500 * num);
+    setTimeout(function(){
+        curDiv.style.backgroundColor = '#eee';
+        console.log('2');
+    }, 500 * num+500);
+}
+
+var j = 0;
+
 Tree.prototype.preOrder = function(node) {
     if (node) {
-        light(node);
-        setTimeout(delight(node), 2000);
+        j += 1;
+        blink(node, j);
         this.preOrder(node.lchild);
         this.preOrder(node.rchild);
     }
@@ -45,10 +51,8 @@ Tree.prototype.preOrder = function(node) {
 Tree.prototype.inOrder = function(node) {
     if (node) {
         this.inOrder(node.lchild);
-        light(node);
-        // delight(node);
-        // setTimeout(function(){delight(node);}, 2000);
-        setTimeout("delight('" + node + "')", 2000);
+        j += 1;
+        blink(node, j);
         this.inOrder(node.rchild);
     }
 }
@@ -57,8 +61,8 @@ Tree.prototype.postOrder = function(node) {
     if (node) {
         this.postOrder(node.lchild);
         this.postOrder(node.rchild);
-        light(node);
-        setTimeout(delight(node), 2000);
+        j += 1;
+        blink(node, j);
     }
 }
 
@@ -67,24 +71,30 @@ for (var i = 0; i < nodeList.length; i++) {
     nodeList[i] = new Node(i);
 };
 
-nodeList[1].lchild = nodeList[3];
-nodeList[1].rchild = nodeList[4];
-nodeList[3].parent = nodeList[1];
-nodeList[4].parent = nodeList[1];
-
-nodeList[2].lchild = nodeList[5];
-nodeList[2].rchild = nodeList[6];
-nodeList[5].parent = nodeList[2];
-nodeList[6].parent = nodeList[2];
-
-nodeList[0].lchild = nodeList[1];
-nodeList[0].rchild = nodeList[2];
-nodeList[1].parent = nodeList[0];
-nodeList[2].parent = nodeList[0];
+nodeList[1].addChild(nodeList[3], nodeList[4]);
+nodeList[2].addChild(nodeList[5], nodeList[6]);
+nodeList[0].addChild(nodeList[1], nodeList[2]);
 
 for (var i = 0; i < nodeList.length; i++) {
     render(nodeList[i]);
 };
 
 var tree = new Tree(nodeList[0]);
-tree.preOrder(nodeList[0]);
+dom = {
+    preBtn: document.getElementById('pre-order'),
+    inBtn: document.getElementById('in-order'),
+    postBtn: document.getElementById('post-order')
+};
+
+dom.preBtn.onclick = function(){
+    tree.preOrder(nodeList[0]);
+    j = 0;
+}
+dom.inBtn.onclick = function(){
+    tree.inOrder(nodeList[0]);
+    j = 0;
+}
+dom.postBtn.onclick = function(){
+    tree.postOrder(nodeList[0]);
+    j = 0;
+}
