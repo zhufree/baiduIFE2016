@@ -1,0 +1,31 @@
+* {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.node {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #eee;
+    font-size: 30px;
+    padding: 10px;
+    /*width: 60%;*/
+    margin: 40px;
+    border: #000 2px solid;
+}
+
+button {
+    background-color: #4F726C;
+    color: #fff;
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+    border: none;
+}
+
+input {
+	height: 40px;
+}

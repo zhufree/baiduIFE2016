@@ -29,11 +29,9 @@ function blink(node, num) {
     var curDiv = document.getElementById(node.data);
     setTimeout(function(){
         curDiv.style.backgroundColor = '#f00';
-        console.log('1');
     }, 500 * num);
     setTimeout(function(){
         curDiv.style.backgroundColor = '#eee';
-        console.log('2');
     }, 500 * num+500);
 }
 
