@@ -1,0 +1,45 @@
+* {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+#node-box {
+	text-align: center;
+}
+.node {
+	position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex:auto;
+    background-color: #eee;
+    font-size: 40px;
+    padding: 10px;
+    margin: 5px auto;
+    border: #000 2px solid;
+}
+
+.switch {
+	position: absolute;
+	left: 15px;
+	top: 15px;
+	width: 40px;
+	height: 40px;
+	font-size: 30px;
+	border: #000 2px solid;
+}
+button {
+    background-color: #78C2C4;
+    color: #fff;
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+    border: none;
+    margin: 20px;
+}
+
+input {
+	height: 40px;
+}
