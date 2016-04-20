@@ -86,8 +86,7 @@ function render(node) {
         e.target.style.color = '#fff';
         e.stopPropagation();
     }
-    // curDiv.style.height = node.parent ? '50%' : '200px';
-    curDiv.style.width = (20 - node.deep) * 40 + 'px';
+    curDiv.style.width = (20 - node.deep) * 30 + 'px';
     if (node.deep > 1) {
         curDiv.style.display = 'none';
     }
@@ -95,19 +94,10 @@ function render(node) {
     open.setAttribute('class', node.deep > 0 ? 'switch closed' : 'switch open');
     open.innerText = node.deep > 0 && node.children.length > 0 ? '+' : '-';
     open.onclick = function(e) {
-        var curLayer = e.target.parentNode.childNodes;
         if (e.target.className === 'switch closed'){
-            for (var i = 2; i < curLayer.length; i++) {
-                curLayer[i].style.display = 'block';
-            };
-            e.target.setAttribute('class', 'switch open');
-            e.target.innerText = '-';
+            openTree(e.target.parentNode.node);
         } else {
-            for (var i = 2; i < curLayer.length; i++) {
-                curLayer[i].style.display = 'none';
-            };
-            e.target.setAttribute('class', 'switch closed');
-            e.target.innerText = '+';
+            closeTree(e.target.parentNode.node);
         }
         e.stopPropagation();
     }
@@ -115,7 +105,22 @@ function render(node) {
     var curPar = node.parent ? node.parent.domElem : dom.nodeBox;
     curPar.appendChild(curDiv);
 }
-
+function openTree(onode) {
+    var curLayer = onode.domElem.childNodes;
+    for (var i = 2; i < curLayer.length; i++) {
+        curLayer[i].style.display = 'block';
+    };
+    curLayer[1].setAttribute('class', 'switch open');
+    curLayer[1].innerText = '-';
+}
+function closeTree(cnode) {
+    var curLayer = cnode.domElem.childNodes;
+    for (var i = 2; i < curLayer.length; i++) {
+        curLayer[i].style.display = 'none';
+    };
+    curLayer[1].setAttribute('class', 'switch closed');
+    curLayer[1].innerText = '+';
+}
 function blink(node, num, kw) {
     var curDiv = node.domElem;
     setTimeout(function(){
@@ -129,15 +134,12 @@ function blink(node, num, kw) {
          setTimeout(function(){
             if (curDiv.style.display === 'none') {
                 while (node.domElem.style.display === 'none') {
-                    for (var i = 0; i < node.parent.children.length; i++) {
-                        node.parent.children[i].domElem.style.display = 'block';
-                    }
+                    openTree(node.parent);
                     node = node.parent;
                 }
             }
             curDiv.style.backgroundColor = '#0f0';
         }, 500 * num+500);
-        
     }
 }
 
