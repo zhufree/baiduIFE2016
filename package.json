@@ -1,0 +1,24 @@
+{
+  "name": "baiduIFE2016",
+  "version": "1.0.0",
+  "description": ">demo放在codepen",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhufree/baiduIFE2016.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhufree/baiduIFE2016/issues"
+  },
+  "homepage": "https://github.com/zhufree/baiduIFE2016#readme",
+  "devDependencies": {
+    "gulp-less": "^3.0.5",
+    "gulp-livereload": "^3.8.1"
+  }
+}
