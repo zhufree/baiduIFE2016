@@ -1,0 +1,120 @@
+@earth-color: #554236;
+@ship-color: #00896C;
+@energy-color: #00ff6C;
+@orbit-color: #26453D;
+@control-color: #ccc;
+@earth-radius: 50px;
+@create-color: #86473F;
+@launch-color: #0089A7;
+@stop-color: #42602D;
+@destroy-color: #E83015;
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.center {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.ship-pole {
+    width: 50px;
+    .center;
+    background-color: transparent;
+    .ship {
+        position: absolute;
+        top: -25px;
+        left: 0;
+        width: 50px;
+        height: 25px;
+        border-radius: 25px;
+        background-color: @ship-color;
+        .energy{
+            width: 50px;
+            height: 25px;
+            border-radius: 25px;
+            background-color: @energy-color;
+        }
+    }
+}
+
+.orbit-like {
+    border: 2px @orbit-color solid;
+    border-radius: 50%;
+}
+
+#display{
+    position: relative;
+    min-height: 700px;
+    #console {
+        width: 300px;
+        border: 2px #000 solid;
+        float: left;
+        min-height: 650px;
+    }
+    #earth {
+        background-color: @earth-color;
+        border-radius: 50%;
+        width: @earth-radius * 2;
+        height: @earth-radius * 2;
+        .center;
+    }
+    .orbit {
+        .orbit-like;
+        .center;
+        @base-radius: 100px;
+        &:nth-child(2) {
+            width: @base-radius * 2;
+            height: @base-radius * 2;
+        }
+        &:nth-child(3) {
+            width: @base-radius * 3;
+            height: @base-radius * 3;
+        }
+        &:nth-child(4) {
+            width: @base-radius * 4;
+            height: @base-radius * 4;
+        }
+        &:nth-child(5) {
+            width: @base-radius * 5;
+            height: @base-radius * 5;
+        }
+    }
+}
+
+#control {
+    width: 400px;
+    background-color: @control-color;
+    margin: auto;
+    ul li {
+        list-style: none;
+        label {
+            margin: 15px;
+        }
+        button {
+            width: 70px;
+            height: 50px;
+            margin: 10px auto;
+            border: none;
+            color: #fff;
+        }
+        .create {
+            background-color: @create-color;
+        }
+        .launch {
+            background-color: @launch-color;
+        }
+        .stop {
+            background-color: @stop-color;
+        }
+        .destroy {
+            background-color: @destroy-color;
+        }
+    }
+}
