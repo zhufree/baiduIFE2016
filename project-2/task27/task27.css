@@ -41,7 +41,7 @@
 }
 #display {
   position: relative;
-  min-height: 700px;
+  min-height: 550px;
 }
 #display #console {
   width: 300px;
@@ -116,4 +116,7 @@
 }
 #control ul li .destroy {
   background-color: #E83015;
+}
+#ship-type {
+  text-align: center;
 }

@@ -56,11 +56,12 @@ $(function() {
             if (!self.runStatus) {
                 self.runStatus = true;
                 console.log('Ship ' + self.orbit + ' launched!');
-                runInt = setInterval(function(){
+                self.runInt = setInterval(function(){
                     self.shipDom.css({'transform': 'rotate(' + self.position + 'deg)'});
+                    $('.energy', self.shipDom).width(self.curPower/SHIP_POWER_FULL % 100*50 + 'px');
                     self.curPower -= self.powerType.reduce/10;
                     self.position += 360/self.powerType.velocity/10;
-                    if ( self.curPower < 0) {
+                    if ( self.curPower <= 0) {
                         self.stop();
                     }
                 }, 100);
@@ -72,8 +73,8 @@ $(function() {
             var self = this;
             if (self.runStatus) {
                 self.runStatus = false;
-                if (!!runInt) {
-                    clearInterval(runInt);
+                if (!!self.runInt) {
+                    clearInterval(self.runInt);
                 }
                 console.log('Ship ' + self.orbit + ' stoped!');
             } else {
@@ -91,6 +92,7 @@ $(function() {
         },
         destroy: function() {
             // this = null;
+            console.log('destroying');
             this.shipDom.remove();
             shipSlot[this.orbit - 1] = null;
             console.log('Ship ' + this.orbit + ' destroyed!');
@@ -98,74 +100,117 @@ $(function() {
         /*
         {
             id: 1,
-            commond: 'create'/stop'/'launch'/'destroy'
+            command: 'create'/stop'/'launch'/'destroy'
         }
         */
-        signalRece: function(signal) {
-            if (signal['id'] === this.orbit) {
-                switch (signal['commond']){
-                    case 'stop':
-                        this.stop();
+        signalRece: function(signalBi) {
+            var self = this;
+            function Adapter(signalBi) {
+                var shipId = parseInt(signalBi.substr(0, 4), 2);
+                switch (signalBi.substr(4, 7)){
+                    case '0000':
+                        comStr = 'create';
                         break;
-                    case 'launch':
-                        this.launch();
+                    case '0010':
+                        comStr = 'stop';
                         break;
-                    case 'destroy':
-                        this.destroy();
+                    case '0001':
+                        comStr = 'launch';
+                        break;
+                    case '1100':
+                        comStr = 'destroy'
                         break;
                     default:
-                        console.log('wrong commond!');
+                        console.log('Wrong command!');
                         break;
                 }
-            }
-        }
-    }
-
-    function Mediator(signal) {
-        if (signal['id'] && signal['commond'] === 'destroy') {
-            shipCount -= 1;
-            shipSlot[signal['id'] - 1].destroy();
-        } else if (signal['id'] && signal['commond'] === 'create') {
-            if (Math.random() > 0.3) {
-                ship = new Ship(signal['id'], 1, 0);
-                ship.recharge();
-            } else {
-                console.log('This message lost!');
-            }
-        } else {
-            setTimeout(function(){
-                for (var i = 0; i < 4; i++) {
-                    if (Math.random() > 0.3 && shipSlot[i]) {
-                        shipSlot[i].signalRece(signal);
-                    } else {
-                        console.log('This message lost!');
-                    }
+                return {
+                    'id': shipId, 
+                    'command': comStr
                 };
-                switch (signal['commond']){
+            }
+            signal = Adapter(signalBi);
+            if (signal['id'] === self.orbit) {
+                switch (signal['command']){
                     case 'stop':
-                        shipSlot[signal['id'] - 1].runStatus = false;
+                        self.stop();
                         break;
                     case 'launch':
-                        shipSlot[signal['id'] - 1].runStatus = true;
+                        self.launch();
                         break;
                     case 'destroy':
-                        shipSlot[signal['id'] - 1] = null;
+                        self.destroy();
                         break;
                     default:
-                        console.log('Wrong commond!');
+                        console.log('wrong command!');
                         break;
                 }
-            }, 1000);
+            }
         }
-        console.log(shipSlot);
     }
 
-    function bindDom(commond) {
-        $('.' + commond).each(function(index) {
+    function BUS(signal) {
+        function Adapter(signal) {
+            var idLen = parseInt(signal['id']).toString(2).length;
+            var idBi = '0000'.substr(idLen).concat(parseInt(signal['id']).toString(2));
+            console.log(idBi);
+            var comBi;
+            switch (signal['command']){
+                case 'create':
+                    comBi = '0000';
+                    break;
+                case 'stop':
+                    comBi = '0010';
+                    break;
+                case 'launch':
+                    comBi = '0001';
+                    break;
+                case 'destroy':
+                    comBi = '1100'
+                    break;
+                default:
+                    console.log('Wrong command!');
+                    comBi = '1111';
+                    break;
+            }
+            return idBi + comBi;
+        }
+        signalBi = Adapter(signal);
+        setTimeout(function(){
+            var rd = Math.random();
+            while(rd) {
+                if (rd > 0.1) {
+                    if (signal['id'] && signal['command'] === 'create') {
+                        var choose = $(':checked');
+                        var shipPowerTypeId = choose[0].value-1;
+                        var shipEnergyTypeId = choose[1].value-1;
+                        ship = new Ship(signal['id'], shipPowerTypeId, shipEnergyTypeId);
+                        console.log(ship);
+                        ship.recharge();
+                    } else {
+                        for (var i = 0; i < 4; i++) {
+                            if (shipSlot[i]) {
+                                shipSlot[i].signalRece(signalBi);
+                            }
+                            console.log('This message send!');
+                        }
+                    }
+                    break;
+                } else {
+                    console.log('This message lost! Try again!');
+                    rd = Math.random();
+                }
+            }
+        }, 300);
+        // console.log(shipSlot);
+    }
+
+    function bindDom(command) {
+        $('.' + command).each(function(index) {
             $(this).click(function() {
-                Mediator({
+                BUS({
                     'id': index + 1,
-                    'commond': commond
+                    'command': command
                 })
             });
         });
