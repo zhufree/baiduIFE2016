@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Task30:表单（二）多个表单项的动态校验</title>
+    <link href="http://cdn.bootcss.com/bootstrap/4.0.0-alpha.3/css/bootstrap.css" rel="stylesheet">
+  </head>
+  <style>
+    .form-box {
+      margin: 20px;
+    }
+    .form-control {
+      margin: 10px 0;
+    }
+    .rule {
+      color: #bbb;
+      font-size: 10px;
+      display: none;
+    }
+    .rule.pass {
+      color: green;
+    }
+    .rule.error {
+      color: red;
+    }
+    input {
+
+    }
+    input.pass {
+      border-color: green;
+    }
+    input.error {
+      border-color: red;
+    }
+
+  </style>
+  <body>
+    <div class="form-box col-md-6" role="form">
+      <div class="form-group" id="name-inp">
+        <label for="name" class="control-label">名称</label>
+        <input type="text" name="name" class="form-control">
+        <span class="rule">必填，长度为4-16个字符</span>
+      </div>
+      <div class="form-group" id='pwd-1-inp'>
+        <label for="password-1" class="control-label">密码</label>
+        <input type="password" name="password-1" class="form-control">
+        <span class="rule">6位以上，只能输入数字，字母</span>
+      </div>
+      <div class="form-group" id="pwd-2-inp">
+        <label for="password-2" class="control-label">确认密码</label>
+        <input type="password" name="password-2" class="form-control">
+        <span class="rule">再次输入相同密码</span>
+      </div>
+      <div class="form-group">
+        <label for="email" class="control-label">邮箱</label>
+        <input type="text" name="email" class="form-control">
+        <span class="rule">请输入邮箱</span>
+      </div>
+      <div class="form-group">
+        <label for="phone" class="control-label">手机</label>
+        <input type="text" name="phone" class="form-control">
+        <span class="rule">请输入手机号</span>
+      </div>
+      <div class="form-group">
+        <button type="button" name="button" class="form-control btn btn-primary">验证</button>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript">
+    // 1.聚焦输入框显示提示
+    // 2.失去焦点时验证
+    // 3.如果正确，输入框变绿，提示正确
+    // 4.如果错误，输入框变红，提示错误
+    // 5.点击提交时，验证所有输入
+    var inputs = document.querySelectorAll('input');
+    function checkValid(type, value) {
+      // console.log(type,value);
+      switch (type) {
+        case 'name':
+          var strLen = 0;
+          for(var i = 0; i < value.toString().length; i++) {
+            if(value.toString().charCodeAt(i) > 255){
+              strLen += 2;
+            } //如果是汉字，则字符串长度加2
+            else {
+              strLen ++;
+            }
+          }
+          if (value == null || value == '' || strLen == 0) {
+            return {
+              pass: false,
+              notice: '姓名不能为空'
+            }
+          } else if (strLen <= 4 || strLen >= 16) {
+            return {
+              pass: false,
+              notice: '姓名长度不合法'
+            }
+          } else {
+            return {
+              pass: true,
+              notice: '名称格式正确'
+            }
+          }
+          break;
+        case 'password-1':
+          var pat = /^[a-zA-Z]{1}([a-zA-Z0-9]|[._]){5,20}$/;
+          if (value.length < 6 || value.length >30 ) {
+            return {
+              pass: false,
+              notice: '密码长度不对'
+            }
+          } else if (!pat.test(value)) {
+            return {
+              pass: false,
+              notice: '密码只能由数字，字母，_，.，组合'
+            }
+          } else {
+            return {
+              pass: true,
+              notice: '密码格式正确'
+            }
+          }
+          break;
+        case 'password-2':
+          pwd1 = document.getElementById('pwd-1-inp').childNodes[3];
+          console.log(pwd1);
+          if (value.length < 6 || value.length >30 ) {
+            return {
+              pass: false,
+              notice: '密码长度不对'
+            }
+          } else if (value == pwd1.value) {
+            return {
+              pass: true,
+              notice: '密码输入一致'
+            }
+          } else {
+            return {
+              pass: false,
+              notice: '密码输入不一致'
+            }
+          }
+          break;
+        case 'email':
+          var pat=/^([\.a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+/;
+          if (pat.test(value)) {
+            return {
+              pass: true,
+              notice: '邮箱格式正确'
+            }
+          } else {
+            return {
+              pass: false,
+              notice: '邮箱格式不正确'
+            }
+          }
+          break;
+        case 'phone':
+          var pat= /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+          if (pat.test(value)) {
+            return {
+              pass:true,
+              notice: '手机号码验证通过'
+            }
+          } else {
+            return {
+              pass: false,
+              notice: '手机号格式错误'
+            }
+          }
+          break;
+        default:
+          break;
+      }
+    }
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].addEventListener('focus', function() {
+        noticeText = this.nextSibling.nextSibling;
+        noticeText.style.display = 'block';
+      });
+      inputs[i].addEventListener('blur', function() {
+        console.log('blur!');
+        noticeText = this.nextSibling.nextSibling;
+        checkResult = checkValid(this.name, this.value);
+        noticeText.innerText = checkResult.notice;
+        noticeText.style.display = 'block';
+        if (checkResult.pass) {
+          noticeText.classList.remove('error');
+          noticeText.classList.add('pass');
+          this.classList.remove('error');
+          this.classList.add('pass');
+        } else {
+          noticeText.classList.remove('pass');
+          noticeText.classList.add('error');
+          this.classList.remove('pass');
+          this.classList.add('error');
+        }
+      });
+    }
+    var checkBtn = document.querySelector('button');
+    checkBtn.addEventListener('click', function() {
+      for (var i = 0; i < inputs.length; i++) {
+        var blurEvt = document.createEvent('customEvent');
+        blurEvt.initEvent('blur', true, true);
+        inputs[i].dispatchEvent(blurEvt);
+      }
+    })
+  </script>
+</html>

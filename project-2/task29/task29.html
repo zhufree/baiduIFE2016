@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Task29-表单（一）单个表单项的检验</title>
+    <link rel="stylesheet" href="task29.css" media="screen" title="no title" charset="utf-8">
+  </head>
+  <body>
+    <div class="form-box">
+      <label for="name-input">名称</label>
+      <input type="text" name='name-input' class="default">
+      <button type="button" name="button">验证</button>
+      <br/>
+      <span class="notice" class="default">必填，长度为4~16个字符</span>
+    </div>
+  </body>
+  <script type="text/javascript">
+    var notice = document.querySelector('span'),
+      input = document.querySelector('input');
+
+    function check_valid(value) {
+      notice.classList = '';
+      input.classList = '';
+      var strLen = 0;
+      for(var i = 0; i < value.toString().length; i++) {
+        if(value.toString().charCodeAt(i) > 255){
+          strLen += 2;
+        } //如果是汉字，则字符串长度加2
+        else {
+          strLen ++;
+        }
+      }
+      if (value == null || value == '' || strLen == 0) {
+        notice.innerText = '姓名不能为空';
+        notice.classList.add('error');
+        input.classList.add('error');
+      } else if (strLen <= 4 || strLen >= 16) {
+        notice.innerText = '姓名长度不合法';
+        notice.classList.add('error');
+        input.classList.add('error');
+      } else {
+        notice.innerText = '名称格式正确';
+        notice.classList.add('pass');
+        input.classList.add('pass');
+      }
+    }
+
+    document.querySelector('button').addEventListener('click', function() {
+      check_valid(input.value);
+    });
+  </script>
+</html>

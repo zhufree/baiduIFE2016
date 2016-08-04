@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>任务二十八：行星与飞船（三）</title>
+    <link rel="stylesheet" href="task28.css">
+</head>
+<body>
+    <section id='display'>
+        <div id="earth"></div>
+        <div class="orbit"></div>
+        <div class="orbit"></div>
+        <div class="orbit"></div>
+        <div class="orbit"></div>
+        <!-- <div class="ship-pole">
+            <div class="ship">
+            <div class="energy"></div>
+            </div>
+        </div> -->
+    </section>
+    <section id="control">
+        <form action="">
+            <ul id="ship-type">
+                <li>
+                    <label for="">动力系统选择</label>
+                    <br>
+                    <input id="qianjin" name="power" type="radio" value="1" />
+                    <label for="qianjin">前进号</label>
+                    <input id="benteng" name="power" type="radio" value="2" />
+                    <label for="benteng">奔腾号</label>
+                    <input id="chaoyue" name="power" type="radio" value="3" />
+                    <label for="chaoyue">超越号</label>
+                </li>
+                <li>
+                    <label for="">能源系统选择</label>
+                    <br>
+                    <input id="jinliang" type="radio" name="energy" type="radio" value="1" />
+                    <label for="jinliang">劲量型</label>
+                    <input id="guangneng" type="radio" name="energy" type="radio" value="2" />
+                    <label for="guangneng">光能型</label>
+                    <input id="yongjiu" type="radio" name="energy" type="radio" value="3" />
+                    <label for="yongjiu">永久型</label>
+                </li>
+            </ul>
+        </form>
+
+        <ul id='command'>
+            <li id="orbit-1">
+                <label for="">Orbit1</label>
+                <button class="create">Create</button>
+                <button class="launch">launch</button>
+                <button class="stop">stop</button>
+                <button class="destroy">destroy</button>
+            </li>
+            <li id="orbit-2">
+                <label for="">Orbit2</label>
+                <button class="create">Create</button>
+                <button class="launch">launch</button>
+                <button class="stop">stop</button>
+                <button class="destroy">destroy</button>
+            </li>
+            <li id="orbit-3">
+                <label for="">Orbit3</label>
+                <button class="create">Create</button>
+                <button class="launch">launch</button>
+                <button class="stop">stop</button>
+                <button class="destroy">destroy</button>
+            </li>
+            <li id="orbit-4">
+                <label for="">Orbit4</label>
+                <button class="create">Create</button>
+                <button class="launch">launch</button>
+                <button class="stop">stop</button>
+                <button class="destroy">destroy</button>
+            </li>
+        </ul>
+    </section>
+    <script src='http://cdn.bootcss.com/jquery/2.2.1/jquery.min.js'></script>
+    <script src='task28.js'></script>
+</body>
+</html>

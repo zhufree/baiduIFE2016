@@ -1,0 +1,49 @@
+@btn-base: blue;
+@base-text: #aaa;
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.form-box {
+  margin: 20px;
+}
+
+label {
+  font-size: 25px;
+  color: #233;
+}
+
+.default {
+  border-color: @base-text;
+  color: @base-text;
+}
+.error {
+  border-color: red;
+  color: red;
+}
+.pass {
+  border-color: green;
+  color: green;
+}
+input {
+  width: 300px;
+  height: 30px;
+  border-radius: 10px;
+  border-width: 1px;
+  border-style: solid;
+}
+
+button {
+  width: 100px;
+  height: 30px;
+  border-radius: 10px;
+  border: 2px blue solid;
+  color: white;
+  background-color: @btn-base;
+}
+
+.notice {
+  padding-left: 60px;
+}
