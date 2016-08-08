@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>任务三十二：表单（四）实现表单自动生成工厂</title>
+    <link href="http://cdn.bootcss.com/bootstrap/4.0.0-alpha.3/css/bootstrap.css" rel="stylesheet">
+  </head>
+  <style>
+    .form-box {
+      margin: 20px;
+    }
+    .form-control {
+      margin: 10px 0;
+    }
+    .rule {
+      color: #bbb;
+      font-size: 10px;
+      display: none;
+    }
+    .rule.pass {
+      color: green;
+    }
+    .rule.error {
+      color: red;
+    }
+    input {
+
+    }
+    input.pass {
+      border-color: green;
+    }
+    input.error {
+      border-color: red;
+    }
+
+  </style>
+  <body>
+    <div class="form-box col-md-6" role="form"></div>
+  </body>
+  <script type="text/javascript">
+    var egForm1 = {
+      label: '名称',                    // 表单标签
+      enLable: 'name',
+      type: 'text',                   // 表单类型
+      validator: function (value) {
+        var strLen = 0;
+        for(var i = 0; i < value.toString().length; i++) {
+          if(value.toString().charCodeAt(i) > 255){
+            strLen += 2;
+          } //如果是汉字，则字符串长度加2
+          else {
+            strLen ++;
+          }
+        }
+        if (value == null || value == '' || strLen == 0) {
+          return  false;
+        } else if (strLen <= 4 || strLen >= 16) {
+          return false;
+        } else {
+          return  true;
+        }
+      },    // 表单验证规
+      rules: '必填，长度为4-16个字符',    // 填写规则提示
+      success: '格式正确',              // 验证通过提示
+      fail: '名称不能为空'               // 验证失败提示
+    }
+    function render(formObj) {
+      var domDiv = document.createElement('div');
+      domDiv.classList.add('form-group');
+      var htmlStr = '<label for="' + formObj.enLable + '" class="control-label">' + formObj.label + '</label>' +
+        '<input type="' + formObj.type +'" name="' + formObj.enLable + '" class="form-control">' +
+        '<span class="rule">' + formObj.rules + '</span>';
+      domDiv.innerHTML = htmlStr;
+      domDiv.querySelector('input').addEventListener('focus', function() {
+        noticeText = this.nextSibling;
+        noticeText.style.display = 'block';
+      });
+      domDiv.querySelector('input').addEventListener('blur', function() {
+        console.log('blur!');
+        noticeText = this.nextSibling;
+        checkResult = formObj.validator(this.value);
+        noticeText.style.display = 'block';
+        if (checkResult) {
+          noticeText.innerText = formObj.success;
+          noticeText.classList.remove('error');
+          noticeText.classList.add('pass');
+          this.classList.remove('error');
+          this.classList.add('pass');
+        } else {
+          noticeText.innerText = formObj.fail;
+          noticeText.classList.remove('pass');
+          noticeText.classList.add('error');
+          this.classList.remove('pass');
+          this.classList.add('error');
+        }
+      });
+      document.querySelector('.form-box').appendChild(domDiv);
+    }
+    render(egForm1);
+  </script>
+</html>

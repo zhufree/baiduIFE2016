@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>任务三十一：表单（三）联动</title>
+    <link href="http://cdn.bootcss.com/bootstrap/4.0.0-alpha.3/css/bootstrap.css" rel="stylesheet">
+  </head>
+  <style>
+    .form-box {
+      margin: 30px;
+    }
+    .form-control {
+      margin: 20px;
+    }
+    .radio-inline {
+      margin-right: 100px;
+    }
+    select {
+      margin-right: 50px;
+      padding: 5px 0 5px 5px;
+      border-radius: 5px;
+    }
+    .later{
+      display: none;
+    }
+    #citySelect {
+      width: 100px;
+    }
+    #schoolSelect {
+      width: 200px;
+    }
+  </style>
+  <body>
+    <div class="form-box form" role="form">
+      <div class="form-group">
+        <label class="radio-inline">
+          <input type="radio" name="identity" id="student" value="student" checked>
+          在校生
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="identity" id="worker" value="worker">
+          非在校生
+        </label>
+      </div>
+      <div class="form-group later" id="for-student">
+        <label for="">学校</label>
+        <select name="city" id="citySelect"></select>
+        <select name="school" id="schoolSelect"></select>
+      </div>
+      <div class="form-group later" id="for-worker">
+        <lable>就业单位</lable>
+        <input type="text" name="place" value="">
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript">
+    var data = {
+      '北京': ['北京大学','清华大学','北京邮电大学','北京林业大学'],
+      '上海': ['同济大学','复旦大学','上海大学','华东师范大学'],
+      '武汉': ['武汉大学','华中科技大学','中南财经大学','中南民族大学','华中师范大学']
+    };
+    var citySelect = document.querySelector('#citySelect'),
+      schoolSelect = document.querySelector('#schoolSelect'),
+      radios = document.querySelectorAll('input[type=radio]');
+    function render(radio) {
+      switch (radio.value) {
+        case 'student':
+          document.querySelector('#for-worker').style.display = 'none';
+          document.querySelector('#for-student').style.display = 'block';
+          var str = '';
+          for (var c in data) {
+            str += '<option value="' + c + '">' + c + '</option>';
+          }
+          for (var s in data['北京']) {
+            schoolSelect.innerHTML += '<option value="' + data['北京'][s] + '">' + data['北京'][s] + '</option>';
+          }
+          citySelect.innerHTML = str;
+          var options = document.querySelectorAll('#citySelect > option');
+          citySelect.addEventListener('change', function() {
+            var str = '';
+            for (var s in data[this.value]) {
+              str += '<option value="' + data[this.value][s] + '">' + data[this.value][s] + '</option>';
+            }
+            schoolSelect.innerHTML = str;
+          });
+          break;
+        case 'worker':
+          document.querySelector('#for-student').style.display = 'none';
+          document.querySelector('#for-worker').style.display = 'block';
+          break;
+        default:
+          break;
+      }
+    }
+    render(radios[0]);
+    for (var i = 0; i < radios.length; i++) {
+      radios[i].addEventListener('focus', function() {
+        render(this);
+      });
+    }
+  </script>
+</html>
