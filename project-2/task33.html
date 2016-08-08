@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>任务三十三：听指令的小方块（一）</title>
+  </head>
+  <style media="screen">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      margin-left: calc(100vw - 100%);
+    }
+    .wrapper {
+      margin: 50px auto;
+      width: 600px;
+    }
+    canvas {
+      width: 600px;
+      height: 600px;
+    }
+    .rect {
+      position: absolute;
+      background-color: red;
+      width: 60px;
+      height: 60px;
+    }
+    #pole {
+      position: absolute;
+      background-color: blue;
+    }
+    .left {
+      left: 0;
+      width: 10px;
+      height: 60px;
+    }
+    .right {
+      right: 0;
+      width: 10px;
+      height: 60px;
+    }
+    .top {
+      top: 0;
+      width: 60px;
+      height: 10px;
+    }
+    .bottom {
+      bottom: 0;
+      width: 60px;
+      height: 10px;
+    }
+    input {
+      text-align: center;
+      margin: 10px auto;
+      width: 300px;
+      height: 40px;
+      display: block;
+    }
+  </style>
+  <body>
+    <div class="wrapper">
+      <canvas id="canvas" height="600" width="600">
+
+      </canvas>
+      <input type="text" name="name" value="">
+    </div>
+  </body>
+  <script type="text/javascript">
+    var canvas = document.getElementById('canvas');
+    dpr = window.devicePixelRatio || 1;
+    ctx = canvas.getContext('2d');
+    ctx.lineWidth = 1;
+    ctx.scale(dpr, dpr);
+    // 画网格
+    for (var i = 0; i <= 600; i += 60) {
+      for (var j = 0; j <= 600; j += 60) {
+        ctx.strokeRect(i,j,60,60);
+      }
+    }
+    // 画正方形
+    // 正方形的位置依据canvas的位置加减一定的坐标来确定
+    var opoint = [canvas.offsetLeft, canvas.offsetTop];
+    var rect = document.createElement('div');
+    rect.classList.add('rect');
+    document.querySelector('.wrapper').insertBefore(rect, canvas);
+    rect.style.top = opoint[1] + 300 + 'px';
+    rect.style.left = opoint[0] + 300 + 'px';
+    // 画蓝色方向标记
+    var pole = document.createElement('div');
+    pole.id = 'pole';
+    document.querySelector('.rect').appendChild(pole);
+    var direction = 3;
+    turn(direction);
+    // 处理移动指令（GO）
+    function move(direction) {
+      var left = parseInt(rect.style.left), top = parseInt(rect.style.top);
+      console.log(left, top);
+      switch (direction) {
+        case 3:
+          if (left > opoint[0]) {
+            rect.style.left = left - 60 + 'px';
+          }
+          break;
+        case 1:
+          if (left < opoint[0] + 540) {
+            rect.style.left = left + 60 + 'px';
+          }
+          break;
+        case 0:
+          if (top > opoint[1]){
+            rect.style.top = top - 60 + 'px';
+          }
+          break;
+        case 2:
+          if (top < opoint[1] + 540) {
+            rect.style.top = top + 60 + 'px';
+          }
+          break;
+        default:
+          break;
+      }
+    }
+    // 旋转后根据方向渲染
+    function turn(direction) {
+      switch (direction) {
+        case 0:
+          pole.className = 'top';
+          break;
+        case 1:
+          pole.className = 'right';
+          break;
+        case 2:
+          pole.className = 'bottom';
+          break;
+        case 3:
+          pole.className = 'left';
+          break;
+        default:
+
+      }
+    }
+    // 获取指令
+    var order = document.querySelector('input');
+
+    order.addEventListener('blur', function() {
+      console.log(order.value);
+      switch (order.value) {
+        case 'GO':
+          move(direction);
+          break;
+        case 'TUN LEF':
+          if (direction > 0) {
+            direction -= 1;
+          } else {
+            direction = 3;
+          }
+          break;
+        case 'TUN RIG':
+          if (direction < 3) {
+            direction += 1;
+          } else {
+            direction = 0;
+          }
+          break;
+        case 'TUN BAC':
+          if (direction + 2 > 3) {
+            direction -= 2;
+          } else {
+            direction += 2;
+          }
+          break;
+        default:
+          console.log('wrong order');
+          break;
+      }
+      turn(direction);
+    });
+  </script>
+</html>
